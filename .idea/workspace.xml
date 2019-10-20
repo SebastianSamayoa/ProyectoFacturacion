@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
@@ -138,4 +139,155 @@
       </map>
     </option>
   </component>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5c49d0ff-844b-4708-a461-ac34f4285633" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clientes/src/main/java/com/proyecto/Clientes/ClientesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Clientes/src/main/java/com/proyecto/Clientes/ClientesApplication.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="SebastianSamayoa &lt;samayoa_jhoan@hotmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="lookForNested" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1RTQstoOsicdMk66LO79OTRIA7U" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ClientesApplication">
+    <configuration name="ClientesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Clientes" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.proyecto.Clientes.ClientesApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ComprasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Compras" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.proyecto.Compras.ComprasApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FacturasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Facturas" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.proyecto.Facturas.FacturasApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Productos" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.proyecto.Productos.ProductosApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProveedoresApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Proveedores" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.proyecto.Proveedores.ProveedoresApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProyectoFinalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ProyectoFinal" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.proyecto.ProyectoFinal.ProyectoFinalApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c49d0ff-844b-4708-a461-ac34f4285633" name="Default Changelist" comment="" />
+      <created>1569688815688</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569688815688</updated>
+      <workItem from="1569688816878" duration="2055000" />
+      <workItem from="1569776948063" duration="2889000" />
+    </task>
+    <task id="LOCAL-00001" summary="Agregando la informacion requerida">
+      <created>1569690557639</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1569690557639</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Agregando la informacion requerida" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregando la informacion requerida" />
+  </component>
+>>>>>>> e469349874fed3bfeaec6ad6a5c551c57b781f9f
 </project>
