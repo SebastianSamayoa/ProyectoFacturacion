@@ -1,6 +1,6 @@
 package com.proyecto.Clientes.Impl;
 
-import com.proyecto.Clientes.Cliente.Cliente;
+import com.proyecto.Clientes.Objeto.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
