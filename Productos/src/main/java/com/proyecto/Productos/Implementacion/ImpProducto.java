@@ -14,9 +14,9 @@ public class ImpProducto implements IntProducto {
     }
 
     @Override
-    public void Crear(String nombre, String marca, double precio) {
+    public void Crear(String nombre, String marca, double precio, Integer existencia) {
         try {
-            Producto producto = new Producto(ListProducto.size(),nombre,marca,precio);
+            Producto producto = new Producto(ListProducto.size(),nombre,marca,precio, existencia);
             ListProducto.add(producto);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
@@ -54,6 +54,12 @@ public class ImpProducto implements IntProducto {
         p.setNombre(nombre);
         p.setPrecio(precio);
         return p;
+    }
+
+    public void ActualizarExistencia(Integer id, Integer Consumido) {
+        Producto p = this.Buscar(id);
+        Integer tempExist = p.getExistencia()-Consumido;
+        p.setExistencia(tempExist);
     }
 
 }

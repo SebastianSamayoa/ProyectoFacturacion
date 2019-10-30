@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface IntProducto {
 
-    void Crear(String nombre, String marca, double precio);
+    void Crear(String nombre, String marca, double precio, Integer existencia);
     Producto Buscar(Integer id);
     void Eliminar(Integer id);
     List<Producto> Obtenertodos();

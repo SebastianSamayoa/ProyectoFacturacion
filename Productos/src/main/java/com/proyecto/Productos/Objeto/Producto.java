@@ -6,12 +6,14 @@ public class Producto {
     String nombre;
     String marca;
     double precio;
+    Integer existencia;
 
-    public Producto(Integer id, String nombre, String marca, double precio) {
+    public Producto(Integer id, String nombre, String marca, double precio, Integer existencia) {
         this.id = id;
         this.nombre = nombre;
         this.marca = marca;
         this.precio = precio;
+        this.existencia = existencia;
     }
 
     public Producto() {
@@ -24,6 +26,7 @@ public class Producto {
                 ", nombre='" + nombre + '\'' +
                 ", marca='" + marca + '\'' +
                 ", precio=" + precio +
+                ", existencia=" + existencia +
                 '}';
     }
 
@@ -57,5 +60,13 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public Integer getExistencia() {
+        return existencia;
+    }
+
+    public void setExistencia(Integer existencia) {
+        this.existencia = existencia;
     }
 }
