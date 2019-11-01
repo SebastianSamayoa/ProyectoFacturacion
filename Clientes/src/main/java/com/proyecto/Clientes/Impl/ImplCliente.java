@@ -1,5 +1,6 @@
 package com.proyecto.Clientes.Impl;
 
+import com.proyecto.Clientes.Interfaces.IntCliente;
 import com.proyecto.Clientes.Objeto.Cliente;
 
 import java.util.ArrayList;
@@ -14,12 +15,14 @@ public class ImplCliente implements IntCliente<Cliente> {
     }
 
     @Override
-    public void Crear(String pNombre, String sNombre, String pApellido, String sApellido, String Nit) {
+    public Cliente Crear(String pNombre, String sNombre, String pApellido, String sApellido, String Nit) {
         try {
             Cliente cliente = new Cliente(ListaClientes.size(),pNombre,sNombre,pApellido,sApellido,Nit);
             ListaClientes.add(cliente);
+            return cliente;
         }catch (Exception ex){
             System.out.println(ex.getMessage());
+            return null;
         }
     }
 

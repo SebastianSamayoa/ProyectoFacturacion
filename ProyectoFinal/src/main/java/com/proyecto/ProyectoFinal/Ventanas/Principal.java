@@ -8,6 +8,7 @@ package com.proyecto.ProyectoFinal.Ventanas;
 import com.proyecto.Clientes.Impl.ImplCliente;
 import com.proyecto.Productos.Implementacion.ImpProducto;
 import com.proyecto.Proveedores.Implementacion.ImplProveedor;
+import com.proyecto.objetos.Factura;
 
 /**
  *
@@ -18,19 +19,26 @@ public class Principal extends javax.swing.JFrame {
     ImplCliente clientes;
     ImpProducto productos;
     ImplProveedor proveedores;
-    
+    Factura Facturas;
+
     Clientes vtnClientes;
     Producto vtnProductos;
     Proveedores vtnProveedores;
+    Facturas vtnFacturas;
 
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        clientes = new ImplCliente();
+        productos = new ImpProducto();
+        proveedores = new ImplProveedor();
+        Facturas = new Factura();
         vtnClientes = new Clientes(clientes);
         vtnProductos = new Producto(productos);
         vtnProveedores = new Proveedores(proveedores);
+        vtnFacturas = new Facturas(clientes, productos, Facturas);
     }
 
     /**
@@ -82,6 +90,11 @@ public class Principal extends javax.swing.JFrame {
 
         btnfacturas.setText("Facturas");
         btnfacturas.setPreferredSize(new java.awt.Dimension(80, 25));
+        btnfacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnfacturasActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Reportes");
         jButton6.setPreferredSize(new java.awt.Dimension(80, 25));
@@ -140,6 +153,10 @@ public class Principal extends javax.swing.JFrame {
     private void btnproductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproductosActionPerformed
         vtnProductos.setVisible(true);
     }//GEN-LAST:event_btnproductosActionPerformed
+
+    private void btnfacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfacturasActionPerformed
+        vtnFacturas.setVisible(true);
+    }//GEN-LAST:event_btnfacturasActionPerformed
 
     /**
      * @param args the command line arguments
