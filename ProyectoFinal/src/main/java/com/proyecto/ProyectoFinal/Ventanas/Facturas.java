@@ -10,6 +10,8 @@ import com.proyecto.Productos.Implementacion.ImpProducto;
 import com.proyecto.objetos.Factura;
 import java.util.ArrayList;
 import java.util.List;
+import com.proyecto.Productos.Objeto.Producto;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,19 +24,21 @@ public class Facturas extends javax.swing.JFrame {
      */
     ImplCliente impcli;
     ImpProducto imppro;
-    Factura fact;
+    List<Factura> fact;
     List<Integer> listaproductos;
+    Integer Correlativo;
 
     public Facturas() {
         initComponents();
     }
 
-    public Facturas(ImplCliente impc, ImpProducto impp, Factura fac) {
+    public Facturas(ImplCliente impc, ImpProducto impp, List<Factura> fac) {
         initComponents();
         this.impcli = impc;
         this.imppro = impp;
         this.fact = fac;
-        this.listaproductos = new ArrayList<>();
+        this.AgregarProductos();
+        Correlativo = 0;
     }
 
     /**
@@ -46,9 +50,10 @@ public class Facturas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         txtnit = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        btnTransmitir = new javax.swing.JButton();
+        btnCrearFactura = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -57,13 +62,24 @@ public class Facturas extends javax.swing.JFrame {
         txtpapellido = new javax.swing.JTextField();
         txtsapellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        cbproductos = new javax.swing.JComboBox<>();
+        btnAgregarProducto = new javax.swing.JButton();
+        txtCantidad = new javax.swing.JTextField();
+
+        jButton1.setText("jButton1");
+
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
         jLabel1.setText("Primer Nombre:");
 
-        btnTransmitir.setText("Transmitir");
-        btnTransmitir.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearFactura.setText("Crear Factura");
+        btnCrearFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransmitirActionPerformed(evt);
+                btnCrearFacturaActionPerformed(evt);
             }
         });
 
@@ -75,13 +91,20 @@ public class Facturas extends javax.swing.JFrame {
 
         jLabel5.setText("Nit:");
 
+        btnAgregarProducto.setText("Agregar Producto");
+        btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,14 +114,19 @@ public class Facturas extends javax.swing.JFrame {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtnit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtsnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtpnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtpapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtsapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnTransmitir))
-                .addContainerGap(263, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtnit, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtsnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtpnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtpapellido, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtsapellido, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(btnCrearFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(cbproductos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAgregarProducto)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,23 +147,51 @@ public class Facturas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
                     .addComponent(txtsapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
-                .addComponent(btnTransmitir)
-                .addGap(101, 101, 101))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCrearFactura)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbproductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarProducto)
+                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTransmitirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransmitirActionPerformed
-        fact = new Factura(0, impcli.Crear(txtpnombre.getText(), txtsnombre.getText(), txtpapellido.getText(), txtpapellido.getText(), txtnit.getText()).getId(), listaproductos);
-        System.out.println(fact.toString());
+    private void btnCrearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFacturaActionPerformed
+        listaproductos = new ArrayList<>();
+        Factura facttemp = new Factura(Correlativo, impcli.Crear(txtpnombre.getText(), txtsnombre.getText(), txtpapellido.getText(), txtpapellido.getText(), txtnit.getText()).getId(), listaproductos);
+        fact.add(facttemp);
         Limpiar();
-    }//GEN-LAST:event_btnTransmitirActionPerformed
+        btnCrearFactura.setEnabled(false);
+    }//GEN-LAST:event_btnCrearFacturaActionPerformed
+
+    private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
+
+        if (txtCantidad.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe Ingresar Cantidad a Comprar");
+            txtCantidad.setFocusable(true);
+            return;
+        }
+
+        Producto temp = (Producto) cbproductos.getSelectedItem();
+        imppro.Reducir(temp.getId(), Integer.parseInt(txtCantidad.getText()));
+        listaproductos.add(temp.getId());
+        System.out.println(fact.toString());
+        txtCantidad.setText("");
+        System.out.println(imppro.Buscar(temp.getId()).toString());
+    }//GEN-LAST:event_btnAgregarProductoActionPerformed
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        Correlativo = Correlativo + 1;
+        btnCrearFactura.setEnabled(true);
+    }//GEN-LAST:event_formComponentHidden
 
     /**
      * @param args the command line arguments
@@ -179,13 +235,27 @@ public class Facturas extends javax.swing.JFrame {
         txtsapellido.setText("");
         txtnit.setText("");
     }
+
+    private void AgregarProductos() {
+        try {
+            for (Producto pro : imppro.Obtenertodos()) {
+                cbproductos.addItem(pro);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnTransmitir;
+    private javax.swing.JButton btnAgregarProducto;
+    private javax.swing.JButton btnCrearFactura;
+    private javax.swing.JComboBox<Producto> cbproductos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtnit;
     private javax.swing.JTextField txtpapellido;
     private javax.swing.JTextField txtpnombre;

@@ -56,10 +56,15 @@ public class ImpProducto implements IntProducto {
         return p;
     }
 
-    public void ActualizarExistencia(Integer id, Integer Consumido) {
+    public void Reducir(Integer id, Integer Consumido) {
         Producto p = this.Buscar(id);
         Integer tempExist = p.getExistencia()-Consumido;
         p.setExistencia(tempExist);
     }
 
+    public void Aumentar(Integer id, Integer Agregado) {
+        Producto p = this.Buscar(id);
+        Integer tempExist = p.getExistencia()+Agregado;
+        p.setExistencia(tempExist);
+    }
 }

@@ -17,6 +17,7 @@ public class Clientes extends javax.swing.JFrame {
 
     /**
      * Creates new form Clientes
+     * @param imp
      */
     public Clientes(ImplCliente imp) {
         this.impcli = imp;

@@ -9,6 +9,8 @@ import com.proyecto.Clientes.Impl.ImplCliente;
 import com.proyecto.Productos.Implementacion.ImpProducto;
 import com.proyecto.Proveedores.Implementacion.ImplProveedor;
 import com.proyecto.objetos.Factura;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,7 +21,7 @@ public class Principal extends javax.swing.JFrame {
     ImplCliente clientes;
     ImpProducto productos;
     ImplProveedor proveedores;
-    Factura Facturas;
+    List<Factura> Facturas;
 
     Clientes vtnClientes;
     Producto vtnProductos;
@@ -34,7 +36,9 @@ public class Principal extends javax.swing.JFrame {
         clientes = new ImplCliente();
         productos = new ImpProducto();
         proveedores = new ImplProveedor();
-        Facturas = new Factura();
+        Facturas = new ArrayList<>();
+        this.CrearProductos();
+        
         vtnClientes = new Clientes(clientes);
         vtnProductos = new Producto(productos);
         vtnProveedores = new Proveedores(proveedores);
@@ -191,6 +195,15 @@ public class Principal extends javax.swing.JFrame {
                 new Principal().setVisible(true);
             }
         });
+    }
+
+    private void CrearProductos() {
+        productos.Crear("Camisa", "Polo", 100.00, 100);
+        productos.Crear("Blusa", "Polo", 150.00, 100);
+        productos.Crear("Pantalon", "Polo", 200.00, 100);
+        productos.Crear("Short", "Polo", 75.00, 100);
+        productos.Crear("Zapatos", "Polo", 250.00, 100);
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
